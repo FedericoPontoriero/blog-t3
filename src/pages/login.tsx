@@ -4,7 +4,7 @@ import { trpc } from "../utils/trpc";
 import { CreateUserInput } from "../schema/user.schema";
 import { useRouter } from "next/router";
 
-function RegisterPage() {
+function LoginPage() {
   const { handleSubmit, register } = useForm<CreateUserInput>();
   const router = useRouter();
 
@@ -21,7 +21,7 @@ function RegisterPage() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>{error && error.message}</form>
-      <h1>Register</h1>
+      <h1>Login</h1>
       <input
         type="email"
         placeholder="test@example.com"
@@ -30,9 +30,9 @@ function RegisterPage() {
       <br />
       <input type="text" placeholder="test" {...register("name")} />
       <button type="submit">Register</button>
-      <Link href="/login">Login</Link>
+      <Link href="/register">Register</Link>
     </>
   );
 }
 
-export default RegisterPage;
+export default LoginPage;
